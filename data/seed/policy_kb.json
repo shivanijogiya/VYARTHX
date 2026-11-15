@@ -1,0 +1,166 @@
+{
+ "_note": "Illustrative guidance snippets used for retrieval. Replace with ULB-approved documents. Statements about the SWM Rules, 2026 follow the project blueprint and are not independently verified in this build.",
+ "snippets": [
+  {
+   "id": "four_streams",
+   "title": "Four-stream source segregation",
+   "text": "The framework used by VYARTHX is four-stream segregation at source: wet waste, dry waste, sanitary waste and special-care waste. Exact accepted materials and collection instructions are configured by the local authority. Interface colours in VYARTHX are illustrative and not a nationally mandated bag-colour standard.",
+   "tags": [
+    "stream",
+    "segregation",
+    "four",
+    "wet",
+    "dry",
+    "sanitary",
+    "special"
+   ]
+  },
+  {
+   "id": "wet",
+   "title": "Wet waste",
+   "text": "Biodegradable kitchen and garden waste. Goes to composting, vermicomposting or biomethanation. Keep it free of plastic, glass and metal.",
+   "tags": [
+    "wet",
+    "food",
+    "kitchen",
+    "compost",
+    "organic",
+    "garden"
+   ]
+  },
+  {
+   "id": "dry",
+   "title": "Dry waste",
+   "text": "Clean recyclables and non-biodegradable dry items: paper, cardboard, plastics, metals, glass, textiles. Keep dry and reasonably clean so materials remain recoverable.",
+   "tags": [
+    "dry",
+    "recyclable",
+    "paper",
+    "plastic",
+    "metal",
+    "glass",
+    "cardboard"
+   ]
+  },
+  {
+   "id": "sanitary",
+   "title": "Sanitary waste",
+   "text": "Diapers, sanitary pads, used masks and similar items. Wrap securely and hand over in the sanitary stream; do not mix with wet or dry waste.",
+   "tags": [
+    "sanitary",
+    "diaper",
+    "pad",
+    "mask",
+    "napkin"
+   ]
+  },
+  {
+   "id": "special",
+   "title": "Special-care waste",
+   "text": "Items that can harm people or the environment if mixed: batteries, CFL and tube lights, expired medicines, paint and chemical containers, mercury devices, sharps and e-waste. Use authorised collection only.",
+   "tags": [
+    "special",
+    "hazard",
+    "battery",
+    "cfl",
+    "medicine",
+    "paint",
+    "mercury",
+    "sharps",
+    "ewaste"
+   ]
+  },
+  {
+   "id": "ewaste",
+   "title": "E-waste handling",
+   "text": "Do not dismantle, burn or acid-strip electronics at home. Hand over to authorised e-waste collectors or recyclers; repair and reuse come first where possible.",
+   "tags": [
+    "ewaste",
+    "electronic",
+    "phone",
+    "laptop",
+    "charger",
+    "dismantle"
+   ]
+  },
+  {
+   "id": "medicine",
+   "title": "Medicine disposal",
+   "text": "Do not flush or burn expired medicines. Use an authorised take-back or special-care collection channel where available.",
+   "tags": [
+    "medicine",
+    "expired",
+    "tablet",
+    "drug"
+   ]
+  },
+  {
+   "id": "glass",
+   "title": "Broken glass",
+   "text": "Wrap broken glass in thick paper, label it and hand over in dry waste so workers are not injured.",
+   "tags": [
+    "glass",
+    "broken",
+    "sharp"
+   ]
+  },
+  {
+   "id": "contamination",
+   "title": "Contamination",
+   "text": "Food-soiled paper and plastics are often rejected by recyclers. Rinse containers lightly and separate soiled portions; follow local acceptance rules.",
+   "tags": [
+    "contamination",
+    "food",
+    "greasy",
+    "soiled",
+    "pizza",
+    "rinse"
+   ]
+  },
+  {
+   "id": "worker_safety",
+   "title": "Worker safety",
+   "text": "Workers should use gloves and closed footwear, never reach into mixed bags with bare hands, and escalate sharps, chemicals and unknown containers instead of handling them.",
+   "tags": [
+    "worker",
+    "safety",
+    "gloves",
+    "sharps",
+    "hazard"
+   ]
+  },
+  {
+   "id": "reuse",
+   "title": "Reuse before recycling",
+   "text": "Reuse, repair and donation keep products in use longer than recycling. List usable furniture, clothes, books and electronics before discarding.",
+   "tags": [
+    "reuse",
+    "repair",
+    "donate",
+    "upcycle"
+   ]
+  },
+  {
+   "id": "events",
+   "title": "Event waste",
+   "text": "Events should place paired collection points for wet, dry-recyclable and reject streams, brief volunteers, and record recovery with a collection partner.",
+   "tags": [
+    "event",
+    "festival",
+    "wedding",
+    "volunteer"
+   ]
+  },
+  {
+   "id": "hazard_rule",
+   "title": "What VYARTHX will not do",
+   "text": "VYARTHX never declares hazardous waste safe, never instructs home processing of hazardous items, and always routes special-care waste to authorised handling.",
+   "tags": [
+    "safe",
+    "hazard",
+    "declare",
+    "authorised"
+   ]
+  }
+ ]
+}

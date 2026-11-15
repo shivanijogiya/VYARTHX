@@ -1,0 +1,75 @@
+{
+ "_note": "Illustrative, editable reward configuration. Points per kg of VERIFIED weight.",
+ "rates_per_kg": {
+  "cardboard": 4,
+  "paper": 3,
+  "pet": 6,
+  "hdpe": 5,
+  "plastic_film": 2,
+  "metal": 8,
+  "glass": 2,
+  "ewaste": 10,
+  "textile": 3,
+  "organic": 1,
+  "tetrapak": 3,
+  "furniture": 2,
+  "sanitary": 0,
+  "mixed": 0,
+  "special": 0
+ },
+ "flat_special_handover": 20,
+ "quality_factor": {
+  "none": 1.0,
+  "possible": 0.7,
+  "detected": 0.4
+ },
+ "provisional_flat": 5,
+ "provisional_min_confidence": 0.6,
+ "behaviour_bonus_per_streak_day": 1,
+ "behaviour_bonus_cap": 5,
+ "recovery_bonus_factor": 0.5,
+ "max_verified_kg_per_household_day": 25,
+ "max_points_per_user_day": 150,
+ "worker_fee_inr_per_kg": 3.0,
+ "worker_min_fee_inr": 10.0,
+ "co2e_factor_kg_per_kg_recovered": {
+  "cardboard": 0.9,
+  "paper": 0.9,
+  "pet": 1.5,
+  "hdpe": 1.3,
+  "plastic_film": 0.5,
+  "metal": 4.0,
+  "glass": 0.3,
+  "ewaste": 2.0,
+  "textile": 2.0,
+  "organic": 0.4,
+  "tetrapak": 0.7,
+  "furniture": 0.5,
+  "mixed": 0.0,
+  "special": 0.0,
+  "sanitary": 0.0
+ },
+ "co2e_note": "ILLUSTRATIVE PLACEHOLDER FACTORS \u2014 not sourced. Replace with ULB / MoEFCC-approved factors before publishing any impact claim.",
+ "compost_yield": {
+  "windrow": 0.3,
+  "vermicompost": 0.35,
+  "decentralised": 0.25
+ },
+ "biogas_m3_per_tonne": 100,
+ "yield_note": "Adjustable planning assumptions, not measured facility data.",
+ "event_waste_kg_per_person": {
+  "none": 0.15,
+  "packaged": 0.3,
+  "catered": 0.45,
+  "stalls": 0.55
+ },
+ "event_stream_split": {
+  "wet": 0.35,
+  "dry_recyclable": 0.45,
+  "reject": 0.15,
+  "special": 0.01,
+  "reusable": 0.04
+ },
+ "event_people_per_collection_point": 150,
+ "event_people_per_volunteer": 60
+}

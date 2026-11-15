@@ -1,0 +1,715 @@
+{
+ "_note": "Illustrative disposal knowledge base for the VYARTHX demo. Local authorities configure actual acceptance rules. Not a regulatory instrument.",
+ "items": [
+  {
+   "id": "pet_bottle",
+   "name": "Plastic water / soft-drink bottle",
+   "stream": "dry",
+   "keywords": [
+    "plastic water bottle",
+    "pet bottle",
+    "water bottle",
+    "soda bottle",
+    "cold drink bottle",
+    "plastic bottle",
+    "bisleri",
+    "pet"
+   ],
+   "object": "PET plastic bottle",
+   "material": "PET plastic",
+   "material_key": "pet",
+   "recyclable": true,
+   "hazard": false,
+   "inherent_contamination": "none",
+   "handling": "Empty it, rinse lightly, crush it and put the cap back on.",
+   "disposal": "Dry waste \u2014 recyclable plastic. Hand over with other clean dry recyclables.",
+   "destination_types": [
+    "mrf",
+    "recycler"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "hdpe_container",
+   "name": "Plastic container / shampoo or detergent bottle",
+   "stream": "dry",
+   "keywords": [
+    "shampoo bottle",
+    "detergent bottle",
+    "hdpe",
+    "plastic container",
+    "plastic jar",
+    "plastic jug",
+    "oil bottle",
+    "plastic can"
+   ],
+   "object": "Rigid plastic container",
+   "material": "HDPE / PP plastic",
+   "material_key": "hdpe",
+   "recyclable": true,
+   "hazard": false,
+   "inherent_contamination": "none",
+   "handling": "Empty and rinse. Check the resin code if visible; accepted types vary by local MRF.",
+   "disposal": "Dry waste \u2014 recyclable plastic where the local MRF accepts it.",
+   "destination_types": [
+    "mrf",
+    "recycler"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "plastic_wrapper",
+   "name": "Plastic wrapper / multilayer packaging",
+   "stream": "dry",
+   "keywords": [
+    "plastic wrapper",
+    "chips packet",
+    "snack wrapper",
+    "multilayer",
+    "plastic bag",
+    "carry bag",
+    "polythene",
+    "sachet",
+    "wrapper",
+    "plastic film",
+    "packet"
+   ],
+   "object": "Plastic wrapper / film",
+   "material": "Multilayer plastic film",
+   "material_key": "plastic_film",
+   "recyclable": false,
+   "hazard": false,
+   "inherent_contamination": "possible",
+   "handling": "Keep dry and as clean as practical; stuff small wrappers into a bag so they do not scatter.",
+   "disposal": "Dry waste. Low-value plastic: recovery depends on local MRF / EPR collection arrangements \u2014 acceptance is not guaranteed.",
+   "destination_types": [
+    "mrf"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "cardboard",
+   "name": "Cardboard / corrugated packaging",
+   "stream": "dry",
+   "keywords": [
+    "cardboard",
+    "carton",
+    "corrugated",
+    "packaging box",
+    "shipping box",
+    "cardboard box",
+    "brown box",
+    "box"
+   ],
+   "object": "Cardboard packaging",
+   "material": "Corrugated cardboard",
+   "material_key": "cardboard",
+   "recyclable": true,
+   "hazard": false,
+   "inherent_contamination": "none",
+   "handling": "Flatten the box, remove tape and plastic where practical, keep it dry.",
+   "disposal": "Dry waste \u2014 clean cardboard is widely recyclable.",
+   "destination_types": [
+    "mrf",
+    "recycler"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "pizza_box",
+   "name": "Food-soiled pizza / paperboard box",
+   "stream": "dry",
+   "keywords": [
+    "pizza box",
+    "greasy box",
+    "oily box",
+    "food box",
+    "takeaway box",
+    "soiled box",
+    "pizza"
+   ],
+   "object": "Cardboard food packaging",
+   "material": "Paperboard (food-soiled)",
+   "material_key": "paper",
+   "recyclable": false,
+   "hazard": false,
+   "inherent_contamination": "detected",
+   "handling": "Separate the clean lid from the greasy base where practical. Tear off food-soiled parts.",
+   "disposal": "Clean portions: dry recyclable paper. Grease-soiled portions are usually not accepted for paper recycling \u2014 follow your local authority's instruction (often wet or reject stream).",
+   "destination_types": [
+    "mrf",
+    "compost"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "paper",
+   "name": "Paper / newspaper / notebooks",
+   "stream": "dry",
+   "keywords": [
+    "newspaper",
+    "paper",
+    "magazine",
+    "notebook",
+    "office paper",
+    "printout",
+    "envelope",
+    "cartons paper"
+   ],
+   "object": "Paper",
+   "material": "Paper",
+   "material_key": "paper",
+   "recyclable": true,
+   "hazard": false,
+   "inherent_contamination": "none",
+   "handling": "Keep dry. Bundle with string; shredded paper in a paper bag.",
+   "disposal": "Dry waste \u2014 recyclable paper.",
+   "destination_types": [
+    "mrf",
+    "recycler"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "tetra_pak",
+   "name": "Beverage / milk carton (multilayer)",
+   "stream": "dry",
+   "keywords": [
+    "tetra pak",
+    "tetrapak",
+    "juice carton",
+    "milk carton",
+    "beverage carton"
+   ],
+   "object": "Multilayer beverage carton",
+   "material": "Paperboard-plastic-foil laminate",
+   "material_key": "tetrapak",
+   "recyclable": true,
+   "hazard": false,
+   "inherent_contamination": "possible",
+   "handling": "Empty, rinse, flatten.",
+   "disposal": "Dry waste \u2014 recyclable only through facilities that accept laminate cartons; confirm local acceptance.",
+   "destination_types": [
+    "mrf",
+    "recycler"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "glass_bottle",
+   "name": "Glass bottle / jar",
+   "stream": "dry",
+   "keywords": [
+    "glass bottle",
+    "glass jar",
+    "glass",
+    "beer bottle",
+    "wine bottle",
+    "jar",
+    "bottle glass"
+   ],
+   "object": "Glass bottle / jar",
+   "material": "Glass",
+   "material_key": "glass",
+   "recyclable": true,
+   "hazard": false,
+   "inherent_contamination": "none",
+   "handling": "Empty and rinse. If broken, wrap the pieces in thick paper, label it 'glass' and keep it away from children.",
+   "disposal": "Dry waste \u2014 glass recycling. Hand broken glass over wrapped and labelled.",
+   "destination_types": [
+    "mrf",
+    "recycler"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "metal_can",
+   "name": "Metal can / tin / aluminium can",
+   "stream": "dry",
+   "keywords": [
+    "tin can",
+    "aluminium can",
+    "aluminum can",
+    "beverage can",
+    "metal tin",
+    "steel can",
+    "can",
+    "tin",
+    "metal"
+   ],
+   "object": "Metal can",
+   "material": "Aluminium / steel",
+   "material_key": "metal",
+   "recyclable": true,
+   "hazard": false,
+   "inherent_contamination": "none",
+   "handling": "Empty and rinse. Do not crush aerosol cans \u2014 see special-care if the can is pressurised or held chemicals.",
+   "disposal": "Dry waste \u2014 metals are high-value recyclables.",
+   "destination_types": [
+    "mrf",
+    "recycler"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "aluminium_foil",
+   "name": "Aluminium foil / foil container",
+   "stream": "dry",
+   "keywords": [
+    "aluminium foil",
+    "foil",
+    "foil container",
+    "silver foil"
+   ],
+   "object": "Aluminium foil",
+   "material": "Aluminium",
+   "material_key": "metal",
+   "recyclable": true,
+   "hazard": false,
+   "inherent_contamination": "possible",
+   "handling": "Wipe off food. Ball up small pieces together.",
+   "disposal": "Dry waste \u2014 clean foil is recoverable; food-soiled foil may be rejected.",
+   "destination_types": [
+    "mrf",
+    "recycler"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "food_waste",
+   "name": "Kitchen / food waste",
+   "stream": "wet",
+   "keywords": [
+    "food waste",
+    "kitchen waste",
+    "vegetable",
+    "fruit peel",
+    "peel",
+    "leftover",
+    "cooked food",
+    "tea leaves",
+    "eggshell",
+    "rice",
+    "banana",
+    "fruit",
+    "bread",
+    "curry",
+    "meal",
+    "food"
+   ],
+   "object": "Food / kitchen waste",
+   "material": "Organic (biodegradable)",
+   "material_key": "organic",
+   "recyclable": true,
+   "hazard": false,
+   "inherent_contamination": "none",
+   "handling": "Drain excess liquid. Keep free of plastic, glass and metal. Use a compostable liner only if your local authority allows it.",
+   "disposal": "Wet waste \u2014 composting or biomethanation.",
+   "destination_types": [
+    "compost",
+    "biomethanation"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "garden_waste",
+   "name": "Garden waste / flowers / leaves",
+   "stream": "wet",
+   "keywords": [
+    "garden waste",
+    "leaves",
+    "flowers",
+    "twigs",
+    "grass",
+    "puja flowers",
+    "coconut shell",
+    "garland"
+   ],
+   "object": "Garden / horticultural waste",
+   "material": "Organic (biodegradable)",
+   "material_key": "organic",
+   "recyclable": true,
+   "hazard": false,
+   "inherent_contamination": "none",
+   "handling": "Remove plastic and wires from garlands. Keep it separate from food waste if composting locally.",
+   "disposal": "Wet waste \u2014 composting.",
+   "destination_types": [
+    "compost"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "sanitary",
+   "name": "Sanitary / diaper / used mask",
+   "stream": "sanitary",
+   "keywords": [
+    "sanitary pad",
+    "sanitary napkin",
+    "diaper",
+    "tampon",
+    "used mask",
+    "gloves",
+    "sanitary",
+    "napkin",
+    "bandage",
+    "cotton swab"
+   ],
+   "object": "Sanitary waste",
+   "material": "Absorbent hygiene products",
+   "material_key": "sanitary",
+   "recyclable": false,
+   "hazard": false,
+   "inherent_contamination": "detected",
+   "handling": "Wrap securely in paper or the pouch it came in and mark it. Never mix with wet or dry recyclables.",
+   "disposal": "Sanitary waste stream \u2014 collected separately for safe treatment. Not recyclable.",
+   "destination_types": [
+    "special_care"
+   ],
+   "reward_eligible": false
+  },
+  {
+   "id": "cfl_bulb",
+   "name": "CFL bulb / fluorescent tube",
+   "stream": "special",
+   "keywords": [
+    "cfl",
+    "fluorescent",
+    "tube light",
+    "tubelight",
+    "cfl bulb",
+    "mercury lamp",
+    "broken bulb",
+    "lamp"
+   ],
+   "object": "CFL / fluorescent lamp",
+   "material": "Glass with mercury vapour",
+   "material_key": "special",
+   "recyclable": false,
+   "hazard": true,
+   "inherent_contamination": "none",
+   "handling": "Do not break it further. If broken, ventilate the room and keep children and pets away; do not use a vacuum cleaner. Place pieces in a sealed container and hand over to authorised collection.",
+   "disposal": "Special-care waste \u2014 authorised collection point or designated service only. Never in ordinary dry recyclables.",
+   "destination_types": [
+    "special_care",
+    "ewaste"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "battery",
+   "name": "Battery / power bank / button cell",
+   "stream": "special",
+   "keywords": [
+    "battery",
+    "batteries",
+    "button cell",
+    "lithium",
+    "power bank",
+    "li-ion",
+    "cell",
+    "inverter battery"
+   ],
+   "object": "Battery",
+   "material": "Metals + electrolyte (lithium / alkaline / lead)",
+   "material_key": "special",
+   "recyclable": false,
+   "hazard": true,
+   "inherent_contamination": "none",
+   "handling": "Do not crush, puncture or open. Tape the terminals of lithium cells. Keep dry and away from heat. Swollen or leaking cells need authorised handling only.",
+   "disposal": "Special-care / e-waste \u2014 authorised collection only.",
+   "destination_types": [
+    "ewaste",
+    "special_care"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "medicine",
+   "name": "Expired medicine / medicine strip",
+   "stream": "special",
+   "keywords": [
+    "expired medicine",
+    "medicine",
+    "tablet",
+    "medicine strip",
+    "syrup",
+    "capsule",
+    "pill",
+    "blister pack",
+    "drug",
+    "ointment"
+   ],
+   "object": "Expired / unused medicine",
+   "material": "Pharmaceutical + foil/plastic packaging",
+   "material_key": "special",
+   "recyclable": false,
+   "hazard": true,
+   "inherent_contamination": "none",
+   "handling": "Keep in original packaging. Do not flush or burn. Keep out of reach of children.",
+   "disposal": "Special-care waste \u2014 return to an authorised medicine take-back / collection point if available. Do not place in dry or wet waste.",
+   "destination_types": [
+    "special_care"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "paint_chemical",
+   "name": "Paint / solvent / pesticide container",
+   "stream": "special",
+   "keywords": [
+    "paint",
+    "thinner",
+    "solvent",
+    "varnish",
+    "pesticide",
+    "chemical",
+    "acid",
+    "aerosol",
+    "insecticide"
+   ],
+   "object": "Chemical / paint container",
+   "material": "Hazardous chemical residue",
+   "material_key": "special",
+   "recyclable": false,
+   "hazard": true,
+   "inherent_contamination": "detected",
+   "handling": "Keep closed in original container, upright and away from heat. Never mix chemicals or pour them into drains.",
+   "disposal": "Special-care waste \u2014 authorised hazardous-waste collection only.",
+   "destination_types": [
+    "special_care"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "mercury_thermometer",
+   "name": "Mercury thermometer / device",
+   "stream": "special",
+   "keywords": [
+    "thermometer",
+    "mercury",
+    "mercury thermometer",
+    "sphygmomanometer"
+   ],
+   "object": "Mercury-containing device",
+   "material": "Glass with elemental mercury",
+   "material_key": "special",
+   "recyclable": false,
+   "hazard": true,
+   "inherent_contamination": "none",
+   "handling": "Do not touch spilled mercury and do not use a vacuum cleaner. Ventilate, keep people away and contact authorised hazardous-waste handling.",
+   "disposal": "Special-care waste \u2014 authorised handling only.",
+   "destination_types": [
+    "special_care"
+   ],
+   "reward_eligible": false
+  },
+  {
+   "id": "sharps",
+   "name": "Syringe / needle / blood-soiled item",
+   "stream": "special",
+   "keywords": [
+    "syringe",
+    "needle",
+    "sharps",
+    "blood",
+    "lancet",
+    "surgical"
+   ],
+   "object": "Sharps / biomedical item",
+   "material": "Biomedical sharps",
+   "material_key": "special",
+   "recyclable": false,
+   "hazard": true,
+   "inherent_contamination": "detected",
+   "handling": "Do not recap, bend or handle. Place only in a puncture-proof container and call authorised biomedical-waste collection.",
+   "disposal": "Special-care (biomedical) \u2014 authorised handling only. VYARTHX cannot declare it safe.",
+   "destination_types": [
+    "special_care"
+   ],
+   "reward_eligible": false
+  },
+  {
+   "id": "ewaste_device",
+   "name": "Electronic device / charger / appliance",
+   "stream": "special",
+   "keywords": [
+    "phone",
+    "mobile",
+    "laptop",
+    "computer",
+    "charger",
+    "cable",
+    "keyboard",
+    "mouse",
+    "television",
+    "tv",
+    "remote",
+    "headphone",
+    "earphone",
+    "electronic",
+    "router",
+    "printer",
+    "monitor",
+    "camera",
+    "speaker",
+    "appliance",
+    "circuit board",
+    "e-waste",
+    "ewaste",
+    "tablet device",
+    "led bulb"
+   ],
+   "object": "Electronic device",
+   "material": "Mixed metals, plastics, circuit boards",
+   "material_key": "ewaste",
+   "recyclable": true,
+   "hazard": true,
+   "inherent_contamination": "none",
+   "handling": "Do not dismantle or burn. Remove personal data and batteries only if they detach without tools. Keep dry.",
+   "disposal": "E-waste \u2014 hand over only to an authorised e-waste collector / recycler. Consider repair or reuse first.",
+   "destination_types": [
+    "ewaste",
+    "refurbisher"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "textile",
+   "name": "Clothes / textiles / footwear",
+   "stream": "dry",
+   "keywords": [
+    "clothes",
+    "shirt",
+    "saree",
+    "textile",
+    "fabric",
+    "shoes",
+    "footwear",
+    "jeans",
+    "blanket",
+    "clothing",
+    "bedsheet"
+   ],
+   "object": "Textile / clothing",
+   "material": "Textile",
+   "material_key": "textile",
+   "recyclable": true,
+   "hazard": false,
+   "inherent_contamination": "none",
+   "handling": "Wash and bag usable items. Wet or mouldy textiles go to dry waste.",
+   "disposal": "Reuse / donate first; otherwise dry waste textile recycling.",
+   "destination_types": [
+    "ngo",
+    "mrf"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "furniture",
+   "name": "Furniture / bulky household item",
+   "stream": "dry",
+   "keywords": [
+    "furniture",
+    "chair",
+    "table",
+    "sofa",
+    "bed",
+    "cupboard",
+    "mattress",
+    "wardrobe",
+    "desk",
+    "bench"
+   ],
+   "object": "Furniture / bulky item",
+   "material": "Wood / metal / foam",
+   "material_key": "furniture",
+   "recyclable": true,
+   "hazard": false,
+   "inherent_contamination": "none",
+   "handling": "List it for reuse or repair first. Bulky items need a scheduled bulky-waste pickup.",
+   "disposal": "Reuse / repair exchange first; otherwise bulky-waste collection.",
+   "destination_types": [
+    "ngo",
+    "refurbisher"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "books",
+   "name": "Books / stationery",
+   "stream": "dry",
+   "keywords": [
+    "book",
+    "books",
+    "textbook",
+    "stationery",
+    "novel"
+   ],
+   "object": "Used books",
+   "material": "Paper",
+   "material_key": "paper",
+   "recyclable": true,
+   "hazard": false,
+   "inherent_contamination": "none",
+   "handling": "Keep dry. Reuse or donate before recycling.",
+   "disposal": "Reuse / donation first; damaged books to paper recycling.",
+   "destination_types": [
+    "ngo",
+    "mrf"
+   ],
+   "reward_eligible": true
+  },
+  {
+   "id": "construction",
+   "name": "Construction / renovation debris",
+   "stream": "dry",
+   "keywords": [
+    "brick",
+    "cement",
+    "tiles",
+    "rubble",
+    "construction",
+    "debris",
+    "concrete",
+    "plaster",
+    "sand"
+   ],
+   "object": "Construction & demolition debris",
+   "material": "Inert mineral material",
+   "material_key": "mixed",
+   "recyclable": false,
+   "hazard": false,
+   "inherent_contamination": "none",
+   "handling": "Do not mix with household waste. Store separately; heavy and sharp.",
+   "disposal": "Bulky / C&D waste \u2014 follow your local authority's C&D collection arrangement.",
+   "destination_types": [
+    "mrf"
+   ],
+   "reward_eligible": false
+  },
+  {
+   "id": "thermocol",
+   "name": "Thermocol / EPS foam",
+   "stream": "dry",
+   "keywords": [
+    "thermocol",
+    "styrofoam",
+    "eps foam",
+    "foam packaging",
+    "polystyrene"
+   ],
+   "object": "Expanded polystyrene foam",
+   "material": "EPS foam",
+   "material_key": "plastic_film",
+   "recyclable": false,
+   "hazard": false,
+   "inherent_contamination": "possible",
+   "handling": "Keep dry and break into bags to avoid scatter.",
+   "disposal": "Dry waste \u2014 very low-value; acceptance depends on local MRF.",
+   "destination_types": [
+    "mrf"
+   ],
+   "reward_eligible": false
+  }
+ ]
+}

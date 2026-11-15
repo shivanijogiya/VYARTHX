@@ -1,0 +1,47 @@
+{
+ "furniture": [
+  "Sand and repaint chairs for a school or community centre",
+  "Convert a wooden pallet into a planter bench",
+  "Reupholster seat cushions with salvaged fabric"
+ ],
+ "books": [
+  "Start a community lending shelf",
+  "Donate to school libraries",
+  "Use damaged pages for paper craft"
+ ],
+ "clothes": [
+  "Turn old T-shirts into cloth bags",
+  "Quilt scraps into floor mats",
+  "Donate wearable items via NGOs"
+ ],
+ "electronics": [
+  "Repair or refurbish before recycling",
+  "Reuse working monitors for a school lab",
+  "Donate chargers/cables only if safe and compatible"
+ ],
+ "wooden": [
+  "Build planter boxes",
+  "Make shelves from salvaged planks",
+  "Offer offcuts to carpenters"
+ ],
+ "containers": [
+  "Reuse jars for storage and seed saving",
+  "Turn bottles into self-watering planters",
+  "Offer clean containers to local sellers"
+ ],
+ "construction": [
+  "Offer leftover tiles/bricks for garden paths",
+  "Donate unopened cement/paint only if in sealed original packs",
+  "Share offcuts with local masons"
+ ],
+ "equipment": [
+  "Offer to schools, labs or makerspaces",
+  "Repair shops can refurbish working equipment",
+  "Exchange for equipment you need"
+ ],
+ "household": [
+  "Swap in neighbourhood groups",
+  "Donate to community centres",
+  "Repair cafe visit"
+ ]
+}
