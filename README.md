@@ -1,5 +1,3 @@
-To run VYARTHX on Windows: Extract the ZIP and double-click `run.bat`.
-
 # VYARTHX
 
 *India's AI-Powered City Waste Intelligence & Circular Economy Platform — Segregate better. Earn responsibly. Recover more. Waste less.*
