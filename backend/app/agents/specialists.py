@@ -811,8 +811,15 @@ def compost_plan_node(ctx: Ctx, d: dict) -> dict:
 
 
 # ---------------------------------------------------------------- Assistant
+ASSISTANT_SYSTEM = ("You are the VYARTHX Assistant, a friendly helper in an Indian city waste-management and circular-economy app "
+                    "(waste segregation, GreenPoints rewards, pickups, recycling marketplace, events). Speak directly to the user as 'you', "
+                    "in plain simple English. Never say 'the system' or describe yourself in the third person. Never invent the user's points, "
+                    "balances, pickups, events or other personal data. Never declare a hazardous item safe. No markdown headings.")
+
+
 def assistant_node(ctx: Ctx, d: dict) -> dict:
     db, user = ctx.db, ctx.user
+    cls: dict = {}
     q = (d.get("message") or "").strip()
     ql = q.lower()
     actions: list[dict] = []
@@ -872,6 +879,20 @@ def assistant_node(ctx: Ctx, d: dict) -> dict:
         ans = "I can identify waste, check your GreenPoints, find events, help you report garbage, explain the marketplace and the digital twin. What would you like to do?"
     from .runtime import llm_text
 
-    final, used = llm_text(f"User question: {q}\nVerified facts to rephrase (do not add facts): {ans}", ans, 200)
+    general = intent == "help" or (intent == "waste" and cls["needs_clarification"])
+    if general:
+        # No specific app data applies: let the LLM answer the question itself (falls back to `ans` without a key).
+        prompt = (f"User question: {q}\n\nAnswer the question directly and helpfully in 2-4 short sentences, in the context of household "
+                  f"waste management in Indian cities. If it names a specific item, say how to segregate and dispose of it; if it could be "
+                  f"hazardous (batteries, e-waste, chemicals, medical, sharps), say to keep it separate and use authorised special-care collection. "
+                  f"If the question is unrelated to waste, environment or this app, say briefly that you can only help with waste-related topics. "
+                  f"Optionally end with ONE short sentence (under 15 words) suggesting the single most relevant app feature, chosen from: "
+                  f"AI Waste Doctor (identify an item from a photo), GreenPoints wallet, pickups, events, garbage reporting, recycling marketplace.")
+    else:
+        prompt = (f"User question: {q}\nVerified facts from the app (rephrase as a direct, friendly answer to the user; keep every number "
+                  f"and rule exactly; do not add new facts): {ans}")
+    final, used = llm_text(prompt, ans, 300 if general else 200, system=ASSISTANT_SYSTEM)
+    if general and used:
+        ctx.step("Orchestrator", "Answer general question with LLM (no app data needed)", lambda: {"mode": "llm_general_answer"}, actor_type="orchestrator", tool="llm_answer")
     d["answer"], d["actions"], d["intent"], d["llm_phrased"] = final, actions, intent, used
     return d

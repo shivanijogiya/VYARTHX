@@ -39,15 +39,17 @@ def jsonable(obj: Any, limit: int = 6000) -> Any:
         return {"repr": repr(obj)[:500]}
 
 
-def llm_text(prompt: str, fallback: str, max_tokens: int = 220) -> tuple[str, bool]:
+NARRATOR_SYSTEM = "You are the VYARTHX orchestrator narrator. Summarise agent activity factually in 2-3 sentences. Never invent numbers or facts that are not in the provided data."
+
+
+def llm_text(prompt: str, fallback: str, max_tokens: int = 220, system: str | None = None) -> tuple[str, bool]:
     """Optional LLM phrasing. Never used for decisions, balances, weights or disposal rules."""
     if not settings.llm_enabled:
         return fallback, False
     try:
         from app.services.llm import complete
 
-        txt = complete(prompt, max_tokens=max_tokens,
-                       system="You are the VYARTHX orchestrator narrator. Summarise agent activity factually in 2-3 sentences. Never invent numbers or facts that are not in the provided data.")
+        txt = complete(prompt, max_tokens=max_tokens, system=system or NARRATOR_SYSTEM)
         return (txt, True) if txt else (fallback, False)
     except Exception:
         return fallback, False
