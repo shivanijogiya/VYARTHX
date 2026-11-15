@@ -9,6 +9,8 @@ export const DATA_CLASS: Record<string, { label: string; cls: string; tip: strin
   simulated: { label: "Simulated", cls: "bg-[#F0EBFF] text-[#5B3FC4]", tip: "Simulated demo data — not real" },
 };
 export function DataBadge({ cls = "simulated" }: { cls?: string }) {
+  // "Simulated" is already stated once in the top bar; repeating it on every number is noise.
+  if (!cls || cls === "simulated") return null;
   const d = DATA_CLASS[cls] || DATA_CLASS.simulated;
   return <span title={d.tip} className={`inline-block rounded px-1.5 py-0.5 text-[11px] font-semibold ${d.cls}`}>{d.label}</span>;
 }

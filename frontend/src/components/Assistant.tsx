@@ -22,7 +22,7 @@ export default function Assistant() {
   return (
     <>
       <button aria-label="Open assistant" onClick={() => setOpen(true)}
-        className={`fixed bottom-5 right-5 z-40 grid place-items-center h-14 w-14 rounded-full bg-white text-forest shadow-pop hover:bg-hover transition ${open ? "hidden" : ""}`}>
+        className={`fixed bottom-20 lg:bottom-5 right-4 lg:right-5 z-40 grid place-items-center h-14 w-14 rounded-full bg-white text-forest shadow-pop hover:bg-hover transition ${open ? "hidden" : ""}`}>
         <MessageCircle size={26} fill="currentColor" className="text-forest" />
       </button>
       {open && (
