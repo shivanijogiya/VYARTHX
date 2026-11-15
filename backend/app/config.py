@@ -62,13 +62,17 @@ class Settings:
     ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
     LLM_MODEL = os.environ.get("VYARTHX_LLM_MODEL", "claude-sonnet-4-5")
     LLM_VISION = _bool("VYARTHX_LLM_VISION", False)
+    # Free alternative: Google Gemini (key from https://aistudio.google.com/apikey)
+    GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+    GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-flash-lite-latest")
+    LLM_PROVIDER = "anthropic" if ANTHROPIC_API_KEY else ("gemini" if GEMINI_API_KEY else "")
     OSRM_URL = os.environ.get("OSRM_URL", "")  # e.g. http://localhost:5000 (optional road routing)
     MAX_RETRIES = int(os.environ.get("AGENT_MAX_RETRIES", "2"))
     PILOT = "Tamil Nadu pilot — Greater Chennai (illustrative localities)"
 
     @property
     def llm_enabled(self) -> bool:
-        return bool(self.ANTHROPIC_API_KEY)
+        return bool(self.LLM_PROVIDER)
 
     @property
     def record_class(self) -> str:

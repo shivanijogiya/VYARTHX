@@ -44,15 +44,11 @@ def llm_text(prompt: str, fallback: str, max_tokens: int = 220) -> tuple[str, bo
     if not settings.llm_enabled:
         return fallback, False
     try:
-        import httpx
+        from app.services.llm import complete
 
-        r = httpx.post(
-            "https://api.anthropic.com/v1/messages",
-            headers={"x-api-key": settings.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json"},
-            json={"model": settings.LLM_MODEL, "max_tokens": max_tokens, "system": "You are the VYARTHX orchestrator narrator. Summarise agent activity factually in 2-3 sentences. Never invent numbers or facts that are not in the provided data.",
-                  "messages": [{"role": "user", "content": prompt}]}, timeout=25)
-        r.raise_for_status()
-        return r.json()["content"][0]["text"].strip(), True
+        txt = complete(prompt, max_tokens=max_tokens,
+                       system="You are the VYARTHX orchestrator narrator. Summarise agent activity factually in 2-3 sentences. Never invent numbers or facts that are not in the provided data.")
+        return (txt, True) if txt else (fallback, False)
     except Exception:
         return fallback, False
 

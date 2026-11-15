@@ -190,21 +190,10 @@ def llm_describe(image_bytes: bytes) -> str:
         buf = io.BytesIO()
         img.save(buf, format="JPEG", quality=80)
         b64 = base64.b64encode(buf.getvalue()).decode()
-        r = httpx.post(
-            "https://api.anthropic.com/v1/messages",
-            headers={"x-api-key": settings.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json"},
-            json={
-                "model": settings.LLM_MODEL,
-                "max_tokens": 120,
-                "messages": [{"role": "user", "content": [
-                    {"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": b64}},
-                    {"type": "text", "text": "In under 25 words, name the single main household waste item in this photo and any visible food/oil contamination. No advice."},
-                ]}],
-            },
-            timeout=25,
-        )
-        r.raise_for_status()
-        return r.json()["content"][0]["text"]
+        from app.services.llm import complete
+
+        return complete("In under 25 words, name the single main household waste item in this photo and any visible food/oil contamination. No advice.",
+                        image_jpeg_b64=b64, max_tokens=120)
     except Exception:
         return ""
 
