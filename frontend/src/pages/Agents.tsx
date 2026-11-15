@@ -57,7 +57,7 @@ export default function AgentCentre() {
           <div className="xl:col-span-2 card max-h-[80vh] overflow-auto">
             <div className="flex gap-2 mb-2"><select className="input" aria-label="Status" value={flt.status} onChange={(e) => setFlt({ ...flt, status: e.target.value })}><option value="">Any status</option>{["completed", "awaiting_approval", "escalated", "rejected", "failed"].map((s) => <option key={s} value={s}>{s.replace("_", " ")}</option>)}</select><select className="input" aria-label="Workflow" value={flt.workflow} onChange={(e) => setFlt({ ...flt, workflow: e.target.value })}><option value="">Any workflow</option>{info.data?.workflows.map((w: any) => <option key={w.name} value={w.name}>{w.name}</option>)}</select></div>
             <Load state={runs} emptyIf={(d: any[]) => d.length === 0}>{(rows: any[]) => rows.map((r) => (
-              <button key={r.id} onClick={() => setSp({ run: String(r.id) })} className={`w-full text-left rounded-lg border p-2.5 mb-2 hover:border-forest ${sel === r.id ? "border-forest bg-mint/40" : ""}`}>
+              <button key={r.id} onClick={() => setSp({ run: String(r.id) })} className={`w-full text-left rounded-lg p-2.5 mb-1 hover:bg-hover transition-colors ${sel === r.id ? "!bg-mint" : ""}`}>
                 <div className="flex justify-between gap-2"><b className="text-sm">#{r.id} {r.title}</b><StatusPill s={r.status} /></div>
                 <div className="text-xs text-ink/60">{r.workflow} · {r.step_count} steps · {r.agents.length} agents · {when(r.started_at)}</div>
                 {r.pending_approvals > 0 && <Pill t="amber">awaiting approval</Pill>}

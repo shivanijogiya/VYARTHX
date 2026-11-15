@@ -4,7 +4,7 @@ import { useAuth } from "../auth";
 import MapView from "../components/MapView";
 import { Empty, ErrorBox, Load, Modal, Notice, Page, Pill, StatusPill, Tabs, useAction, useLoad, when } from "../components/ui";
 
-const COL: any = { new: "#F97373", verified: "#F59E0B", pending: "#1D4ED8", resolved: "#22C55E" };
+const COL: any = { new: "#F02849", verified: "#F7B928", pending: "#7B61FF", resolved: "#31A24C" };
 export default function Hotspots() {
   const { user, meta } = useAuth();
   const isMun = user.role === "municipal";

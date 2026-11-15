@@ -25,12 +25,12 @@ export default function WasteDoctor() {
     <Page title="AI Waste Doctor" subtitle="Upload a photo or describe an item. VYARTHX tells you how to segregate and dispose of it — and asks for clarification when it isn’t sure.">
       <div className="grid lg:grid-cols-2 gap-4">
         <div className="card space-y-3">
-          <div onClick={() => ref.current?.click()} onDragOver={(e) => e.preventDefault()} onDrop={(e) => { e.preventDefault(); pick(e.dataTransfer.files[0]); }} className="border-2 border-dashed border-fresh/50 rounded-xl min-h-[11rem] grid place-items-center cursor-pointer hover:bg-mint/40 text-center p-3" role="button" tabIndex={0} aria-label="Upload photo" onKeyDown={(e) => e.key === "Enter" && ref.current?.click()}>
+          <div onClick={() => ref.current?.click()} onDragOver={(e) => e.preventDefault()} onDrop={(e) => { e.preventDefault(); pick(e.dataTransfer.files[0]); }} className="border-2 border-dashed border-line rounded-lg bg-cream/60 min-h-[11rem] grid place-items-center cursor-pointer hover:bg-btn transition-colors text-center p-3" role="button" tabIndex={0} aria-label="Upload photo" onKeyDown={(e) => e.key === "Enter" && ref.current?.click()}>
             {preview ? <img src={preview} alt="Selected waste" className="max-h-56 rounded-lg" /> : <div className="text-ink/60"><Camera className="mx-auto mb-1" /><div className="font-semibold">Tap to take or upload a photo</div><div className="text-xs">JPEG/PNG up to 8 MB — optional</div></div>}
           </div>
           <input ref={ref} type="file" accept="image/*" capture="environment" hidden onChange={(e) => pick(e.target.files?.[0])} />
           <div><label className="label" htmlFor="t">Describe the item (helps when the photo is unclear)</label><input id="t" className="input" value={text} onChange={(e) => setText(e.target.value)} placeholder="e.g. empty plastic water bottle with oil residue" /></div>
-          <div className="flex flex-wrap gap-1">{ex.data?.slice(0, 8).map((e: any) => <button key={e.id} className="text-xs rounded-full bg-gray-100 hover:bg-mint px-2 py-1" onClick={() => setText(e.sample_text)}>{e.name}</button>)}</div>
+          <div className="flex flex-wrap gap-1">{ex.data?.slice(0, 8).map((e: any) => <button key={e.id} className="text-xs rounded-full bg-btn hover:bg-mint px-2 py-1" onClick={() => setText(e.sample_text)}>{e.name}</button>)}</div>
           <div className="flex gap-2"><button className="btn-primary flex-1" disabled={a.busy || (!file && !text.trim())} onClick={analyse}><Upload size={16} />{a.busy ? "Analysing…" : "Analyse item"}</button>{file && <button className="btn-secondary" onClick={() => { setFile(null); setPreview(""); }}>Clear</button>}</div>
           {a.err && <ErrorBox error={a.err} />}
         </div>
@@ -40,7 +40,7 @@ export default function WasteDoctor() {
           {c && (
             <div className="card space-y-3">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <div><div className="text-xs text-ink/50">Detected</div><div className="text-xl font-extrabold text-forest">{c.detected_object || "Unknown"}</div></div>
+                <div><div className="text-xs text-ink/50">Detected</div><div className="text-xl font-bold text-ink">{c.detected_object || "Unknown"}</div></div>
                 <div className="text-right"><div className="text-xs text-ink/50">Confidence</div><div className="text-xl font-bold">{Math.round((c.confidence || 0) * 100)}%</div></div>
               </div>
               <div className="flex flex-wrap gap-2"><Pill t={c.stream === "wet" ? "green" : c.stream === "dry" ? "blue" : c.stream === "special" ? "red" : "gray"}>{c.stream} stream</Pill>{c.material && <Pill>{c.material}</Pill>}{c.contamination && c.contamination !== "none" && <Pill t="amber">contamination: {c.contamination}</Pill>}<Pill t="gray">{c.mode}</Pill></div>

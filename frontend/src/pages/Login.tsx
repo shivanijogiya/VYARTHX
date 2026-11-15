@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { api } from "../api";
 import { useAuth } from "../auth";
 import Logo from "../components/Logo";
-import { ErrorBox, Notice, Pill } from "../components/ui";
+import { ErrorBox, Pill } from "../components/ui";
 
 export default function Login() {
   const { login, meta, setSession } = useAuth();
@@ -27,44 +27,58 @@ export default function Login() {
     } catch (e: any) { setErr(e.message); } finally { setBusy(false); }
   };
   const quick = async (a: any) => { setBusy(true); setErr(""); try { await login(a.email, a.password); nav("/", { replace: true }); } catch (e: any) { setErr(e.message); } finally { setBusy(false); } };
+  const big = "input !h-[52px] !text-[17px] !px-4";
   return (
-    <div className="min-h-full grid lg:grid-cols-2">
-      <div className="bg-forest text-white p-8 lg:p-14 flex flex-col justify-center">
-        <Logo light size={44} />
-        <h1 className="text-3xl lg:text-4xl font-extrabold mt-8 leading-tight">India’s AI-Powered City Waste Intelligence &amp; Circular Economy Platform</h1>
-        <p className="mt-4 text-mint text-lg">{meta?.tagline || "Segregate better. Earn responsibly. Recover more. Waste less."}</p>
-        <ul className="mt-8 space-y-2 text-sm text-mint/90 list-disc pl-5">
-          <li>AI Waste Doctor, verified GreenPoints and a tamper-evident Waste Passport</li>
-          <li>Agentic workflows with human approval gates and a full audit trail</li>
-          <li>Dynamic collection, Digital Twin and landfill intelligence for city teams</li>
-        </ul>
-        <div className="mt-8 text-xs text-mint/70">Bharat Agentic-AI Hackathon 2026 · Track 3 · Waste Management{meta?.pilot ? ` · ${meta.pilot}` : ""}</div>
-      </div>
-      <div className="p-6 lg:p-14 flex flex-col justify-center max-w-xl w-full mx-auto">
-        <h2 className="text-2xl font-bold text-forest">{mode === "in" ? "Sign in" : "Create your account"}</h2>
-        <form onSubmit={submit} className="mt-4 space-y-3">
-          {mode === "up" && <div><label className="label" htmlFor="n">Full name</label><input id="n" className="input" value={name} onChange={(e) => setName(e.target.value)} required minLength={2} /></div>}
-          <div><label className="label" htmlFor="e">Email</label><input id="e" type="email" className="input" value={email} onChange={(e) => setEmail(e.target.value)} required autoComplete="username" /></div>
-          <div><label className="label" htmlFor="p">Password</label><input id="p" type="password" className="input" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={mode === "up" ? 8 : 1} autoComplete={mode === "in" ? "current-password" : "new-password"} /></div>
-          {mode === "up" && (
-            <div className="grid grid-cols-2 gap-3">
-              <div><label className="label" htmlFor="r">I am a</label><select id="r" className="input" value={role} onChange={(e) => setRole(e.target.value)}><option value="citizen">Citizen</option><option value="worker">Waste worker</option><option value="organiser">Event organiser</option></select></div>
-              <div><label className="label" htmlFor="w">Ward / locality</label><select id="w" className="input" value={ward} onChange={(e) => setWard(e.target.value ? Number(e.target.value) : "")}><option value="">Select…</option>{meta?.wards?.map((w: any) => <option key={w.id} value={w.id}>{w.name}</option>)}</select></div>
-            </div>
-          )}
-          {err && <ErrorBox error={err} />}
-          <button className="btn-primary w-full" disabled={busy}>{busy ? "Please wait…" : mode === "in" ? "Sign in" : "Create account"}</button>
-        </form>
-        <button className="text-sm text-deep mt-3 underline self-start" onClick={() => { setMode(mode === "in" ? "up" : "in"); setErr(""); }}>{mode === "in" ? "New here? Create an account" : "Have an account? Sign in"}</button>
-        {accts.length > 0 && (
-          <div className="mt-8">
-            <div className="flex items-center gap-2 mb-2"><Pill t="purple">Demo Mode</Pill><span className="text-xs text-ink/60">One-click demo accounts (password <code>{accts[0].password}</code>)</span></div>
-            <div className="grid sm:grid-cols-2 gap-2">
-              {accts.map((a) => <button key={a.email} onClick={() => quick(a)} disabled={busy} className="text-left card !p-3 hover:border-forest transition"><div className="text-sm font-semibold">{a.name}</div><div className="text-[11px] text-ink/60">{a.description}</div><div className="text-[10px] text-ink/40 mt-0.5">{a.email}</div></button>)}
+    <div className="min-h-full bg-cream">
+      <div className="max-w-[1000px] mx-auto px-4 pt-10 lg:pt-24 pb-10 grid lg:grid-cols-[1fr_400px] gap-10 lg:gap-16 items-start">
+        <div className="text-center lg:text-left lg:pt-10">
+          <Logo size={56} />
+          <h1 className="text-[26px] lg:text-[32px] leading-tight font-normal text-ink mt-5 max-w-[520px] mx-auto lg:mx-0">
+            {meta?.tagline || "Segregate better. Earn responsibly. Recover more. Waste less."}
+          </h1>
+          <p className="mt-3 text-[17px] text-ink/60 max-w-[500px] mx-auto lg:mx-0">India's AI-powered city waste intelligence and circular-economy platform, for citizens, waste workers, recyclers and city teams.</p>
+          <div className="hidden lg:grid grid-cols-3 gap-3 mt-8 max-w-[520px]">
+            {[["AI Waste Doctor", "Identify any item from a photo"], ["GreenPoints", "Verified rewards for clean waste"], ["Waste Passport", "Track every batch end to end"]].map(([t, d]) => (
+              <div key={t} className="card !p-3"><div className="text-[15px] font-semibold">{t}</div><div className="text-[13px] text-ink/60 mt-0.5">{d}</div></div>
+            ))}
+          </div>
+        </div>
+        <div>
+          <div className="bg-white rounded-lg shadow-pop p-4">
+            {mode === "up" && <h2 className="text-[22px] font-bold text-center mb-3">Create a new account</h2>}
+            <form onSubmit={submit} className="space-y-3">
+              {mode === "up" && <input aria-label="Full name" placeholder="Full name" className={big} value={name} onChange={(e) => setName(e.target.value)} required minLength={2} />}
+              <input aria-label="Email" placeholder="Email address" type="email" className={big} value={email} onChange={(e) => setEmail(e.target.value)} required autoComplete="username" />
+              <input aria-label="Password" placeholder="Password" type="password" className={big} value={password} onChange={(e) => setPassword(e.target.value)} required minLength={mode === "up" ? 8 : 1} autoComplete={mode === "in" ? "current-password" : "new-password"} />
+              {mode === "up" && (
+                <div className="grid grid-cols-2 gap-3">
+                  <div><label className="label" htmlFor="r">I am a</label><select id="r" className="input !h-11" value={role} onChange={(e) => setRole(e.target.value)}><option value="citizen">Citizen</option><option value="worker">Waste worker</option><option value="organiser">Event organiser</option></select></div>
+                  <div><label className="label" htmlFor="w">Ward / locality</label><select id="w" className="input !h-11" value={ward} onChange={(e) => setWard(e.target.value ? Number(e.target.value) : "")}><option value="">Select…</option>{meta?.wards?.map((w: any) => <option key={w.id} value={w.id}>{w.name}</option>)}</select></div>
+                </div>
+              )}
+              {err && <ErrorBox error={err} />}
+              <button className="btn-primary w-full !h-12 !text-[20px] !font-bold !rounded-md" disabled={busy}>{busy ? "Please wait…" : mode === "in" ? "Log in" : "Sign up"}</button>
+            </form>
+            <div className="border-t border-line/70 my-5" />
+            <div className="text-center">
+              <button className="btn !h-12 !px-4 !text-[17px] !font-bold bg-fresh text-white hover:bg-[#2A8D42]" onClick={() => { setMode(mode === "in" ? "up" : "in"); setErr(""); }}>{mode === "in" ? "Create new account" : "Back to log in"}</button>
             </div>
           </div>
-        )}
-        <div className="mt-6"><Notice>All demo figures are simulated and labelled. No real payments, vehicle dispatch or railway benefits exist in this build.</Notice></div>
+          {accts.length > 0 && (
+            <div className="mt-5 bg-white rounded-lg shadow-card p-3">
+              <div className="flex items-center justify-between px-1 mb-2"><span className="text-[15px] font-semibold">Try a demo account</span><Pill t="purple">password {accts[0].password}</Pill></div>
+              <div className="max-h-[260px] overflow-auto -mx-1">
+                {accts.map((a) => (
+                  <button key={a.email} onClick={() => quick(a)} disabled={busy} className="w-full flex items-center gap-3 rounded-md px-2 py-2 text-left hover:bg-hover disabled:opacity-50">
+                    <span className="grid place-items-center h-10 w-10 rounded-full bg-forest text-white text-[15px] font-semibold shrink-0">{a.name.split(/\s+/).slice(0, 2).map((w: string) => w[0]).join("").toUpperCase()}</span>
+                    <span className="min-w-0"><span className="block text-[15px] font-semibold truncate">{a.name}</span><span className="block text-[13px] text-ink/60 truncate">{a.description}</span></span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+          <p className="mt-4 text-[13px] text-ink/60 text-center px-4">All demo figures are simulated and labelled. No real payments, vehicle dispatch or railway benefits exist in this build.</p>
+        </div>
       </div>
     </div>
   );

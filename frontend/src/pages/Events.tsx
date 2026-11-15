@@ -27,13 +27,13 @@ export default function Events() {
       <div className="grid lg:grid-cols-3 gap-4">
         <div className="card lg:col-span-1 max-h-[78vh] overflow-auto"><h2 className="font-bold mb-2">Events</h2>
           <Load state={list} emptyIf={(d: any[]) => d.length === 0}>{(rows: any[]) => rows.map((x) => (
-            <button key={x.id} onClick={() => { setSel(x.id); setReport(null); }} className={`w-full text-left rounded-lg border p-2.5 mb-2 hover:border-forest ${sel === x.id ? "border-forest bg-mint/40" : ""}`}>
+            <button key={x.id} onClick={() => { setSel(x.id); setReport(null); }} className={`w-full text-left rounded-lg p-2.5 mb-1 hover:bg-hover transition-colors ${sel === x.id ? "!bg-mint" : ""}`}>
               <div className="flex justify-between"><b className="text-sm">{x.name}</b><StatusPill s={x.status} /></div><div className="text-xs text-ink/60">{when(x.starts_at)} · {x.expected_attendance} people · {x.participants} participants</div>
             </button>))}</Load></div>
         <div className="lg:col-span-2 space-y-4">
           {!sel && <div className="card"><Empty title="Select an event" hint="Or plan a new one to get an AI-estimated waste plan." /></div>}
           {sel && <Load state={det}>{(e: any) => (<>
-            <div className="card"><div className="flex flex-wrap justify-between gap-2"><div><h2 className="text-lg font-extrabold text-forest">{e.name}</h2><div className="text-sm text-ink/60">{e.venue} · {e.ward} · {when(e.starts_at)} · {e.duration_h}h · food: {e.food} · organiser {e.organiser}</div></div><StatusPill s={e.status} /></div>
+            <div className="card"><div className="flex flex-wrap justify-between gap-2"><div><h2 className="text-lg font-bold text-ink">{e.name}</h2><div className="text-sm text-ink/60">{e.venue} · {e.ward} · {when(e.starts_at)} · {e.duration_h}h · food: {e.food} · organiser {e.organiser}</div></div><StatusPill s={e.status} /></div>
               <h3 className="font-semibold mt-4 text-sm">Event Planning Agent’s waste plan <Pill t="amber">estimate</Pill></h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-2"><Stat label="Expected waste" value={`${fmt(e.plan?.estimated_total_kg, 0)} kg`} /><Stat label="Collection points" value={e.plan?.collection_points} tone="blue" /><Stat label="Volunteers needed" value={e.plan?.volunteers_required} sub={`${e.volunteers_available} available`} tone="amber" /><Stat label="Participants" value={e.participants} /></div>
               {e.plan?.estimated_by_stream_kg && <div className="text-xs mt-2 text-ink/70">By stream: {Object.entries(e.plan.estimated_by_stream_kg).map(([k, v]) => `${k.replace("_", " ")} ${v} kg`).join(" · ")}</div>}

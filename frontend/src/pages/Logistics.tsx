@@ -4,7 +4,7 @@ import { api } from "../api";
 import MapView from "../components/MapView";
 import { DataBadge, Empty, ErrorBox, Load, Notice, Page, Pill, Stat, StatusPill, Tabs, useAction, useLoad, fmt } from "../components/ui";
 
-const COLORS = ["#1D4ED8", "#166534", "#F59E0B", "#F97373", "#38BDF8", "#7C3AED", "#0F766E", "#B45309"];
+const COLORS = ["#7B61FF", "#0866FF", "#F7B928", "#F02849", "#38BDF8", "#7C3AED", "#0F766E", "#B45309"];
 export default function Logistics() {
   const dem = useLoad("/logistics/demand");
   const al = useLoad("/logistics/alerts");

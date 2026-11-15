@@ -2,16 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 html, body, #root { height: 100%; }
-body { @apply bg-cream text-ink font-sans antialiased; }
-.btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-deep disabled:opacity-50 disabled:cursor-not-allowed; }
-.btn-primary { @apply btn bg-forest text-white hover:bg-green-800; }
-.btn-secondary { @apply btn bg-white text-forest border border-forest/30 hover:bg-mint; }
-.btn-danger { @apply btn bg-coral text-white hover:bg-red-400; }
-.btn-blue { @apply btn bg-deep text-white hover:bg-blue-800; }
-.btn-sm { @apply px-3 py-1.5 text-xs; }
-.card { @apply bg-white rounded-xl shadow-card border border-green-900/5 p-4 sm:p-5; }
-.input { @apply w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:border-forest focus:outline-none focus:ring-2 focus:ring-fresh/40; }
-.label { @apply block text-xs font-semibold text-ink/70 mb-1; }
-.th { @apply text-left text-xs font-semibold text-ink/60 py-2 px-2 border-b border-gray-200 whitespace-nowrap; }
-.td { @apply py-2 px-2 border-b border-gray-100 text-sm align-top; }
-.leaflet-container { font-family: inherit; border-radius: 12px; }
+body { @apply bg-cream text-ink font-sans antialiased; font-size: 15px; }
+h1, h2, h3 { letter-spacing: -0.01em; }
+
+/* Buttons: flat, 6px radius, semibold — Meta style */
+.btn { @apply inline-flex items-center justify-center gap-2 rounded-md h-9 px-3 text-[15px] font-semibold transition-colors duration-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest/50 disabled:opacity-40 disabled:cursor-not-allowed select-none; }
+.btn-primary { @apply btn bg-forest text-white hover:bg-[#0757D8] active:bg-[#064DC0]; }
+.btn-secondary { @apply btn bg-btn text-ink hover:bg-[#D8DADF] active:bg-[#CED0D4]; }
+.btn-danger { @apply btn bg-coral text-white hover:bg-[#D9203F]; }
+.btn-blue { @apply btn bg-mint text-forest hover:bg-[#DBE7F2]; }
+.btn-sm { @apply h-8 px-3 text-[13px]; }
+.icon-btn { @apply grid place-items-center h-10 w-10 rounded-full bg-btn text-ink hover:bg-[#D8DADF] transition-colors; }
+
+/* Surfaces */
+.card { @apply bg-white rounded-lg shadow-card p-4; }
+.divider { @apply border-t border-line/70; }
+
+/* Forms */
+.input { @apply w-full rounded-md border border-line bg-white px-3 py-2 text-[15px] placeholder:text-ink/40 transition focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/20; }
+.label { @apply block text-[13px] font-semibold text-ink/70 mb-1; }
+
+/* Tables */
+.th { @apply text-left text-[13px] font-semibold text-ink/60 py-2.5 px-3 border-b border-line/70 whitespace-nowrap; }
+.td { @apply py-2.5 px-3 border-b border-line/40 text-sm align-top; }
+tbody tr:hover > .td { @apply bg-hover/60; }
+
+/* Thin scrollbars like Meta's side rails */
+* { scrollbar-width: thin; scrollbar-color: rgba(0,0,0,.2) transparent; }
+
+.leaflet-container { font-family: inherit; border-radius: 8px; }

@@ -5,11 +5,11 @@ import { Empty, ErrorBox, Load, Notice, Page, Pill, StatusPill, Spinner, useLoad
 import { api } from "../api";
 
 function Balance({ m }: { m: any }) {
-  const parts = [["Recovered", m.recovered_kg, "#22C55E"], ["Rejects", m.rejects_kg, "#F59E0B"], ["Loss/moisture", m.process_loss_kg, "#38BDF8"], ["Other", m.other_output_kg, "#A78BFA"], ["Unaccounted", Math.max(m.discrepancy_kg, 0), "#F97373"]];
+  const parts = [["Recovered", m.recovered_kg, "#31A24C"], ["Rejects", m.rejects_kg, "#F7B928"], ["Loss/moisture", m.process_loss_kg, "#38BDF8"], ["Other", m.other_output_kg, "#A78BFA"], ["Unaccounted", Math.max(m.discrepancy_kg, 0), "#F02849"]];
   const tot = m.input_kg || 1;
   return (
     <div>
-      <div className="flex h-4 rounded-full overflow-hidden bg-gray-100">{parts.map(([l, v, c]: any) => v > 0 && <div key={l} title={`${l}: ${v} kg`} style={{ width: `${(v / tot) * 100}%`, background: c }} />)}</div>
+      <div className="flex h-4 rounded-full overflow-hidden bg-btn">{parts.map(([l, v, c]: any) => v > 0 && <div key={l} title={`${l}: ${v} kg`} style={{ width: `${(v / tot) * 100}%`, background: c }} />)}</div>
       <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs">{parts.map(([l, v, c]: any) => <span key={l} className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full" style={{ background: c }} />{l}: <b>{fmt(v, 2)} kg</b></span>)}</div>
       <div className="text-xs text-ink/60 mt-2">{m.equation}. {m.complete ? "Mass balance closes." : "Not yet complete — facility records are pending."}{m.discrepancy_flag && <b className="text-coral"> Discrepancy flagged.</b>}</div>
     </div>
@@ -29,7 +29,7 @@ export default function Passports() {
         <div className="card lg:col-span-1 max-h-[75vh] overflow-auto">
           <h2 className="font-bold mb-2">Batches</h2>
           <Load state={list} emptyIf={(x: any[]) => x.length === 0}>{(rows: any[]) => rows.map((b) => (
-            <button key={b.id} onClick={() => setSp({ ref: b.code })} className={`w-full text-left rounded-lg border p-2.5 mb-2 hover:border-forest ${ref === b.code ? "border-forest bg-mint/40" : ""}`}>
+            <button key={b.id} onClick={() => setSp({ ref: b.code })} className={`w-full text-left rounded-lg p-2.5 mb-1 hover:bg-hover transition-colors ${ref === b.code ? "!bg-mint" : ""}`}>
               <div className="flex justify-between items-center"><b className="text-sm">{b.code}</b><StatusPill s={b.status} /></div>
               <div className="text-xs text-ink/60">{b.input_kg} kg · {b.material_key || b.stream} · {b.ward}</div>
             </button>
@@ -41,7 +41,7 @@ export default function Passports() {
           {ref && !d && !err && <Spinner />}
           {d && (<>
             <div className="card">
-              <div className="flex flex-wrap items-center justify-between gap-2"><div><h2 className="text-lg font-extrabold text-forest">{d.code}</h2><div className="text-sm text-ink/60">{d.material_key || d.stream} · {d.input_kg} kg input · {d.ward}{d.owner ? ` · ${d.owner}` : ""}</div></div><div className="text-right"><StatusPill s={d.status} /><div className="text-xs text-ink/60 mt-1">{d.status_text}</div></div></div>
+              <div className="flex flex-wrap items-center justify-between gap-2"><div><h2 className="text-lg font-bold text-ink">{d.code}</h2><div className="text-sm text-ink/60">{d.material_key || d.stream} · {d.input_kg} kg input · {d.ward}{d.owner ? ` · ${d.owner}` : ""}</div></div><div className="text-right"><StatusPill s={d.status} /><div className="text-xs text-ink/60 mt-1">{d.status_text}</div></div></div>
               <div className="mt-4"><Balance m={d.mass_balance} /></div>
               <div className="mt-3 flex items-center gap-2 text-xs"><Link2 size={14} />{d.chain.intact ? <Pill t="green">Hash chain intact · {d.chain.events} events · head {d.chain.head?.slice(0, 10)}…</Pill> : <Pill t="red">Chain broken — tampering suspected</Pill>}</div>
             </div>

@@ -52,7 +52,7 @@ export default function Dashboard() {
             <div className="card lg:col-span-2">
               <h2 className="font-bold mb-2">My Waste Passports</h2>
               {d.passports.length === 0 ? <Empty title="No passports yet" hint="A passport is created when a collector confirms your handover." /> : d.passports.map((p: any) => (
-                <Link key={p.id} to={`/passports?ref=${p.code}`} className="flex items-center justify-between rounded-lg border p-3 mb-2 hover:border-forest text-sm"><div><b>{p.code}</b> · {p.input_kg} kg · {p.material_key || p.stream}<div className="text-xs text-ink/60">{p.status_text}</div></div><StatusPill s={p.status} /></Link>
+                <Link key={p.id} to={`/passports?ref=${p.code}`} className="flex items-center justify-between rounded-lg bg-cream/70 p-3 mb-2 hover:bg-btn transition-colors text-sm"><div><b>{p.code}</b> · {p.input_kg} kg · {p.material_key || p.stream}<div className="text-xs text-ink/60">{p.status_text}</div></div><StatusPill s={p.status} /></Link>
               ))}
             </div>
             <div className="card">
